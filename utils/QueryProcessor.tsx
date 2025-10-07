@@ -21,6 +21,12 @@ export default function QueryProcessor(query: string): string {
       return Math.max(...numbers).toString();
     }
   }
+  if (query.toLowerCase().includes("what is") && query.toLowerCase().includes("plus")) {
+    const numbers = query.match(/\d+/g)?.map(Number);
+    if (numbers && numbers.length === 2) {
+      return (numbers[0] + numbers[1]).toString();
+    }
+  }
 
   return "";
 }
