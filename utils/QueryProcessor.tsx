@@ -15,5 +15,12 @@ export default function QueryProcessor(query: string): string {
     return "ahusun";
   }
 
+  if (query.toLowerCase().includes("which of the following numbers is the largest")) {
+    const numbers = query.match(/\d+/g)?.map(Number);
+    if (numbers && numbers.length > 0) {
+      return Math.max(...numbers).toString();
+    }
+  }
+
   return "";
 }
